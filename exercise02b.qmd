@@ -1,6 +1,66 @@
 ---
 title: "exercise2b"
+author: "lemeng"
 format: html
+knitr:
+  opts_chunk:
+    eval: false
 ---
 
 ## exercise 2b file
+## Applied Data Analysis 01/23 notes
+
+**import data from file \<data-wrangling.csv\>**
+
+```{r}
+
+library(tidyverse)
+f <- file.choose()
+typeof(f)
+d <- read_csv(f, col_names = TRUE)
+
+```
+
+**view data structure and specific lines**
+
+```{r}
+
+View(d)
+glimpse(d)
+class(d) #different types of data in "d"
+head(d)
+tail(d)
+
+```
+
+**using \$ to extract data**
+
+```{r}
+fbm <- d$Body_mass_female_mean
+bs <- d$Brain_Size_Species_Mean
+```
+
+**\$ and \[\[ \]\] have the same function**
+
+```{r}
+
+fbm_1 <- d[["Body_mass_female_mean"]]
+bs_1 <- d[["Brain_Size_Species_Mean"]]
+```
+
+**plot the relationship between female body mass and brain size**
+
+```{r}
+
+plot(fbm, bs)
+plot(log(fbm), log(bs))
+```
+
+**generate new column using two extant columns**
+
+```{r}
+
+speciesname <- paste(d$Genus, d$Species) #with space between the words
+speciesname <- paste0(d$Genus, d$Species) #without space between the words
+speciesname <- paste(d$Genus, d$Species, sep = "_") #add "_" between the words
+```
