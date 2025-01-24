@@ -8,6 +8,7 @@ knitr:
 ---
 
 ## exercise 2b file
+
 ## Applied Data Analysis 01/23 notes
 
 **import data from file \<data-wrangling.csv\>**
